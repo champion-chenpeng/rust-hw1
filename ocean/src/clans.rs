@@ -66,7 +66,7 @@ impl ClanSystem {
 		if let Some(clan) = self.clans.get_mut(clan_id) {
 			clan.push(String::from(crab_name));
 		} else {
-			self.clans.insert(clan_id.to_string().clone(), vec![String::from(crab_name)]);
+			self.clans.insert(String::from(clan_id).clone(), vec![String::from(crab_name)]);
 		}
 	}
 }
