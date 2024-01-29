@@ -15,13 +15,10 @@ impl ClanSystem {
      * Returns a list of the names of the clan members for the given clan id.
      */
     pub fn get_clan_member_names(&self, clan_id: &str) -> Vec<String> {
-        let mut name_list = Vec::new();
-		if let Some(clan) = self.clans.get(clan_id) {
-			for name in clan {
-				name_list.push(name.clone()); 
-			}
+		if !self.clans.get(clan_id).is_none() {
+			return self.clans.get(clan_id).unwrap().to_vec();
 		}
-		name_list
+		return Vec::new();
     }
 
     /**
